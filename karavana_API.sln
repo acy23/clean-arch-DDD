@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "karavana_API", "karavana_API\karavana_API.csproj", "{C50A4B7E-6544-43ED-A0E5-60D3073A302C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE} = {BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE}
+		{DB2E3384-1859-4660-AF7A-0D8486350BBD} = {DB2E3384-1859-4660-AF7A-0D8486350BBD}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "karavana_DOMAIN", "karavana_DOMAIN\karavana_DOMAIN.csproj", "{4B02DDFE-F088-4B27-BF3C-3E3EE788D90C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "karavana_INFRASTRUCTURE", "karavana_INFRASTRUCTURE\karavana_INFRASTRUCTURE.csproj", "{DB2E3384-1859-4660-AF7A-0D8486350BBD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "karavana_APPLICATION", "karavana_APPLICATION\karavana_APPLICATION.csproj", "{5BC1267F-00EF-4E8C-895B-3F02E2EBB625}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "karavana_CONTRACTS", "karavana_CONTRACTS\karavana_CONTRACTS.csproj", "{BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C50A4B7E-6544-43ED-A0E5-60D3073A302C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50A4B7E-6544-43ED-A0E5-60D3073A302C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50A4B7E-6544-43ED-A0E5-60D3073A302C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50A4B7E-6544-43ED-A0E5-60D3073A302C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B02DDFE-F088-4B27-BF3C-3E3EE788D90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B02DDFE-F088-4B27-BF3C-3E3EE788D90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B02DDFE-F088-4B27-BF3C-3E3EE788D90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B02DDFE-F088-4B27-BF3C-3E3EE788D90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2E3384-1859-4660-AF7A-0D8486350BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2E3384-1859-4660-AF7A-0D8486350BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2E3384-1859-4660-AF7A-0D8486350BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2E3384-1859-4660-AF7A-0D8486350BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BC1267F-00EF-4E8C-895B-3F02E2EBB625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BC1267F-00EF-4E8C-895B-3F02E2EBB625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BC1267F-00EF-4E8C-895B-3F02E2EBB625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BC1267F-00EF-4E8C-895B-3F02E2EBB625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEDA606-2C93-4F15-9478-0E2F2BC4D8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C74E9D0D-7420-4E38-B4FA-0427A8432B0D}
+	EndGlobalSection
+EndGlobal
