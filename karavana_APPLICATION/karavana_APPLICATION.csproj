@@ -8,11 +8,16 @@
 
   <ItemGroup>
     <Folder Include="InfraAbstractions\" />
-    <Folder Include="ServiceImplementations\" />
-    <Folder Include="ServiceAbstractions\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\karavana_CONTRACTS\karavana_CONTRACTS.csproj" />
     <ProjectReference Include="..\karavana_DOMAIN\karavana_DOMAIN.csproj" />
   </ItemGroup>
 

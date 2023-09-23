@@ -8,7 +8,7 @@ namespace karavana_DOMAIN.Enums
 {
     public enum CaravanType
     {
-        MotorCaravan = 0,
+        MotorCaravan = 1,
         MinibusCaravan,
         OtobusCaravan,
         PickupCamperCaravan

@@ -1,4 +1,7 @@
-﻿using karavana_INFRASTRUCTURE.Persistence;
+﻿using karavana_APPLICATION.InfraAbstractions;
+using karavana_INFRASTRUCTURE.Mapper;
+using karavana_INFRASTRUCTURE.Persistence;
+using karavana_INFRASTRUCTURE.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +18,12 @@ namespace karavana_INFRASTRUCTURE
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
         {
             services.AddSqlDb(configuration);
+
+            services.AddLogging();
+            services.AddAutoMapper(typeof(MapperProfiles));
+
+            services.AddRepositories();
+
             return services;
         }
 
@@ -26,6 +35,14 @@ namespace karavana_INFRASTRUCTURE
             });
             return services;
         }
+
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<ICaravanRepository, CaravanRepository>();
+
+            return services;
+        }
+
 
     }
 }

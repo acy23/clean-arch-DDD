@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\karavana_DOMAIN\karavana_DOMAIN.csproj" />
+  </ItemGroup>
+
 </Project>

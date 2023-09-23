@@ -1,3 +1,4 @@
+using karavana_APPLICATION;
 using karavana_INFRASTRUCTURE;
 
 public class Program
@@ -14,6 +15,7 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddInfrastructure(builder.Configuration);
+        builder.Services.AddApplication();
 
         var app = builder.Build();
 

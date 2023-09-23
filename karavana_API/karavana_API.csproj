@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\karavana_APPLICATION\karavana_APPLICATION.csproj" />
     <ProjectReference Include="..\karavana_CONTRACTS\karavana_CONTRACTS.csproj" />
     <ProjectReference Include="..\karavana_INFRASTRUCTURE\karavana_INFRASTRUCTURE.csproj" />

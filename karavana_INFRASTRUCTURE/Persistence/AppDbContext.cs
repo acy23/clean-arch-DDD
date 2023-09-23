@@ -20,7 +20,9 @@ namespace karavana_INFRASTRUCTURE.Persistence
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Caravan>(entity => entity.ToTable(nameof(Caravan)));
+            modelBuilder.Entity<Caravan>(entity => 
+                                             entity.ToTable(nameof(Caravan))
+                                             );
         }
     }
 }
