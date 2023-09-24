@@ -11,36 +11,36 @@ namespace karavana_DOMAIN.Entites
     {
         public Caravan(
                 string name, 
-                double price,
-                Currency currency,
                 FuelType fuelType,
                 CaravanType caravanType,
+                Capacity capacity,
                 int cityId,
                 int districtId,
-                GearType gearType)
+                GearType gearType,
+                string description)
         {
             Name = name;
-            Price = price;
-            Currency = currency;
             FuelType = fuelType;
             CaravanType = caravanType;
+            Capacity = capacity;
             CityId = cityId;
             DistrictId = districtId;
             GearType = gearType;
+            Description = description;
         }
 
         public string Name { get; private set; }
-        public double Price { get; private set; }
-        public Currency Currency { get; private set; }
-        public double? Rate { get; private set; }
+        public string Description { get; private set; }
         public FuelType FuelType { get; private set; }
         public CaravanType CaravanType { get; private set; }
         public GearType GearType { get; private set; }
-        public int CityId { get; set; }
+        public Capacity Capacity { get; private set; }
+        public int CityId { get; private set; }
         public City City { get; private set; }
-        public int DistrictId { get; set; }
+        public int DistrictId { get; private set; }
         public District District { get; private set; }
         public int CompanyId { get; private set; }
         public Company Company { get; private set; }
+        public ICollection<ActiveCaravanPlace> ActiveCaravanPlaces { get; private set; }
     }
 }

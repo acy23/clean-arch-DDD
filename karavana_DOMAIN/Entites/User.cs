@@ -31,6 +31,8 @@ namespace karavana_DOMAIN.Entites
         public DateTime? ChangedAt { get; private set; }
         public string? ChangedBy { get; private set; }
         public bool IsDeleted { get; private set; } = false;
+        public ICollection<Favourite> Favourites { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
 
     }
 }

@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using karavana_CONTRACTS.DTOs.ActiveCaravanPlace;
 using karavana_CONTRACTS.DTOs.Caravan;
+using karavana_CONTRACTS.DTOs.CityDistricts;
+using karavana_CONTRACTS.DTOs.Company;
 using karavana_CONTRACTS.DTOs.User;
 using karavana_DOMAIN.Entites;
 using System;
@@ -16,6 +19,10 @@ namespace karavana_INFRASTRUCTURE.Mapper
         {
             CreateMap<Caravan, CaravanDTO>();
             CreateMap<User, UserDto>();
+            CreateMap<City, CityDto>();
+            CreateMap<District, DistrictDto>();
+            CreateMap<ActiveCaravanPlace, ActiveCaravanPlaceDto>();
+            CreateMap<Company, CompanyDto>();
 
         }
     }

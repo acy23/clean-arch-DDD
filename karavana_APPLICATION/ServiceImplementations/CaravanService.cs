@@ -25,14 +25,15 @@ namespace karavana_APPLICATION.ServiceImplementations
         public async Task<CaravanDTO> CreateCaravan(CreateCaravanRequest request)
         {
             var entity = new Caravan
-                (request.Name,
-                 request.Price,
-                 request.Currency,
-                 request.FuelType,
-                 request.CaravanType,
-                 request.CityId,
-                 request.DistrictId,
-                 request.GearType
+                (
+                    name: request.Name,
+                    fuelType: request.FuelType,
+                    caravanType: request.CaravanType,
+                    capacity: request.Capacity,
+                    cityId: request.CityId,
+                    districtId: request.DistrictId,
+                    gearType: request.GearType,
+                    description: request.Description
                  );
 
             var caravan = await _repo.CreateCaravan(entity);
