@@ -11,10 +11,12 @@ namespace karavana_CONTRACTS.DTOs.Caravan
     {
         public string Name { get; set; }
         public double Price { get; set; }
+        public int CompanyId { get; set; }
         public Currency Currency { get; set; }
         public double? Rate { get; set; }
         public FuelType FuelType { get; set; }
         public CaravanType CaravanType { get; set; }
+        public GearType GearType { get; set; }
         public string City { get; set; }
         public string District { get; set; }
     }

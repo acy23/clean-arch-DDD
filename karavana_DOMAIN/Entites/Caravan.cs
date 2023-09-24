@@ -15,16 +15,18 @@ namespace karavana_DOMAIN.Entites
                 Currency currency,
                 FuelType fuelType,
                 CaravanType caravanType,
-                string city,
-                string district)
+                int cityId,
+                int districtId,
+                GearType gearType)
         {
             Name = name;
             Price = price;
             Currency = currency;
             FuelType = fuelType;
             CaravanType = caravanType;
-            City = city;
-            District = district;
+            CityId = cityId;
+            DistrictId = districtId;
+            GearType = gearType;
         }
 
         public string Name { get; private set; }
@@ -33,7 +35,12 @@ namespace karavana_DOMAIN.Entites
         public double? Rate { get; private set; }
         public FuelType FuelType { get; private set; }
         public CaravanType CaravanType { get; private set; }
-        public string City { get; private set; }
-        public string District { get; private set; }
+        public GearType GearType { get; private set; }
+        public int CityId { get; set; }
+        public City City { get; private set; }
+        public int DistrictId { get; set; }
+        public District District { get; private set; }
+        public int CompanyId { get; private set; }
+        public Company Company { get; private set; }
     }
 }

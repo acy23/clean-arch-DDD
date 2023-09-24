@@ -30,8 +30,10 @@ namespace karavana_APPLICATION.ServiceImplementations
                  request.Currency,
                  request.FuelType,
                  request.CaravanType,
-                 request.City,
-                 request.District);
+                 request.CityId,
+                 request.DistrictId,
+                 request.GearType
+                 );
 
             var caravan = await _repo.CreateCaravan(entity);
             var caravanDto = _mapper.Map<CaravanDTO>(caravan);

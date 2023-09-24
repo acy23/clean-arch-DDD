@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using karavana_INFRASTRUCTURE.Persistence;
 
@@ -11,9 +12,11 @@ using karavana_INFRASTRUCTURE.Persistence;
 namespace karavana_INFRASTRUCTURE.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230924161556_GearType")]
+    partial class GearType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,8 +175,9 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.Property<string>("ChangedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
@@ -188,8 +192,9 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.Property<int>("Currency")
                         .HasColumnType("int");
 
-                    b.Property<int>("DistrictId")
-                        .HasColumnType("int");
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("int");
@@ -212,26 +217,9 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
-
                     b.HasIndex("CompanyId");
 
-                    b.HasIndex("DistrictId");
-
                     b.ToTable("Caravan", (string)null);
-                });
-
-            modelBuilder.Entity("karavana_DOMAIN.Entites.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.HasKey("Id");
-
-                    b.ToTable("City", (string)null);
                 });
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.Company", b =>
@@ -265,24 +253,6 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Company", (string)null);
-                });
-
-            modelBuilder.Entity("karavana_DOMAIN.Entites.District", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("District");
                 });
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.User", b =>
@@ -431,55 +401,16 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.Caravan", b =>
                 {
-                    b.HasOne("karavana_DOMAIN.Entites.City", "City")
-                        .WithMany("Caravans")
-                        .HasForeignKey("CityId")
-                        .IsRequired()
-                        .HasConstraintName("FK_City_Caravans");
-
                     b.HasOne("karavana_DOMAIN.Entites.Company", "Company")
                         .WithMany("Caravans")
                         .HasForeignKey("CompanyId")
                         .IsRequired()
                         .HasConstraintName("FK_Company_Caravan");
 
-                    b.HasOne("karavana_DOMAIN.Entites.District", "District")
-                        .WithMany("Caravans")
-                        .HasForeignKey("DistrictId")
-                        .IsRequired()
-                        .HasConstraintName("FK_District_Caravans");
-
-                    b.Navigation("City");
-
                     b.Navigation("Company");
-
-                    b.Navigation("District");
-                });
-
-            modelBuilder.Entity("karavana_DOMAIN.Entites.District", b =>
-                {
-                    b.HasOne("karavana_DOMAIN.Entites.City", "City")
-                        .WithMany("Districts")
-                        .HasForeignKey("CityId")
-                        .IsRequired()
-                        .HasConstraintName("FK_District_City");
-
-                    b.Navigation("City");
-                });
-
-            modelBuilder.Entity("karavana_DOMAIN.Entites.City", b =>
-                {
-                    b.Navigation("Caravans");
-
-                    b.Navigation("Districts");
                 });
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.Company", b =>
-                {
-                    b.Navigation("Caravans");
-                });
-
-            modelBuilder.Entity("karavana_DOMAIN.Entites.District", b =>
                 {
                     b.Navigation("Caravans");
                 });

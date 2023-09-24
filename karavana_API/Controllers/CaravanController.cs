@@ -18,7 +18,7 @@ namespace karavana_API.Controllers
         }
 
         [HttpPost("create")]
-        [Authorize]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<CaravanDTO> CreateCaravan([FromBody] CreateCaravanRequest request)
         {
             var response = await _service.CreateCaravan(request);
@@ -26,7 +26,6 @@ namespace karavana_API.Controllers
         }
 
         [HttpGet("get-by-id")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<CaravanDTO> GetCaravanById([FromQuery] int id)
         {
             var response = await _service.GetCaravanById(id);

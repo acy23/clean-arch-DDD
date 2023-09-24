@@ -47,6 +47,7 @@ namespace karavana_INFRASTRUCTURE
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<ICaravanRepository, CaravanRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ITokenHelper, TokenHelper>();
             services.AddScoped<IUserRepository, UserRepository>();
 

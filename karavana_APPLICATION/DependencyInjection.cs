@@ -17,6 +17,8 @@ namespace karavana_APPLICATION
         {
             services.AddScoped<ICaravanService, CaravanService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICompanyService, CompanyService>();
+
 
             return services;
         }
