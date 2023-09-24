@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using karavana_CONTRACTS.DTOs.Caravan;
+using karavana_CONTRACTS.DTOs.User;
 using karavana_DOMAIN.Entites;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace karavana_INFRASTRUCTURE.Mapper
         public MapperProfiles()
         {
             CreateMap<Caravan, CaravanDTO>();
+            CreateMap<User, UserDto>();
+
         }
     }
 }

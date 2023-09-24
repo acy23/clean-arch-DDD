@@ -33,7 +33,7 @@ namespace karavana_DOMAIN.Entites
         public double? Rate { get; private set; }
         public FuelType FuelType { get; private set; }
         public CaravanType CaravanType { get; private set; }
-        public string City { get; set; }
-        public string District { get; set; }
+        public string City { get; private set; }
+        public string District { get; private set; }
     }
 }

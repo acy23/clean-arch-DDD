@@ -16,6 +16,7 @@ namespace karavana_APPLICATION
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<ICaravanService, CaravanService>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
