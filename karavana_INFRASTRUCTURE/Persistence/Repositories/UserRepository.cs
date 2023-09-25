@@ -54,7 +54,6 @@ namespace karavana_INFRASTRUCTURE.Persistence.Repositories
             const string numbers = "0123456789";
             int letterLength = 8;
             int numberLength = 2;
-            int totalLength = 10;
 
             StringBuilder sb = new StringBuilder();
 

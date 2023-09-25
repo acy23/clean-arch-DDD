@@ -29,7 +29,8 @@ namespace karavana_APPLICATION.ServiceImplementations
                 lastName: request.LastName,
                 address: null,
                 profilePictureUrl: null,
-                email: request.Email
+                email: request.Email,
+                userRole: request.UserRole
                 );
 
             var createdUser = await _repo.CreateUser(user, request.Password);
@@ -37,6 +38,7 @@ namespace karavana_APPLICATION.ServiceImplementations
 
             var userDto = _mapper.Map<UserDto>(createdUser);
             userDto.AccessToken = token;
+            
             return userDto;
         }
     }

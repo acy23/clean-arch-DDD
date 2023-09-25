@@ -1,4 +1,5 @@
-﻿using System;
+﻿using karavana_DOMAIN.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace karavana_CONTRACTS.DTOs.User
         public string? ProfilePictureUrl { get; set; }
         public DateTime CreatedAt { get; set; }
         public string AccessToken { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }

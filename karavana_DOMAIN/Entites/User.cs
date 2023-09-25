@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using karavana_DOMAIN.Enums;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,14 @@ namespace karavana_DOMAIN.Entites
 {
     public sealed class User : IdentityUser
     {
-        public User(string? firstName, string? lastName, string? address, string? profilePictureUrl, string email)
+        public User(string? firstName, string? lastName, string? address, string? profilePictureUrl, string email, UserRole userRole)
         {
             FirstName = firstName;
             LastName = lastName;
             Address = address;
             ProfilePictureUrl = profilePictureUrl;
             Email = email;
+            UserRole = userRole;
 
             ChangedAt = null;
             ChangedBy = null;
@@ -25,6 +27,7 @@ namespace karavana_DOMAIN.Entites
         public string? LastName { get; private set; }
         public string? Address { get; private set; }
         public string? ProfilePictureUrl { get; private set; }
+        public UserRole UserRole { get; private set; }
         // Audit
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
         public string CreatedBy { get; private set; } = string.Empty;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using karavana_DOMAIN.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace karavana_CONTRACTS.DTOs.User
         public string? LastName { get; set; }
         public string? PhoneNumber { get; set; }
         public string Password { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }
