@@ -25,7 +25,7 @@ namespace karavana_DOMAIN.Entites
 
         public int CaravanId { get; private set; }
         public Caravan Caravan { get; private set; }
-        public double Price { get; private set; }
+        public double Price { get; private set; } // per day
         public Currency Currency { get; private set; }
         public DateTime PlaceStartDate { get; private set; }
         public DateTime? PlaceEndDate { get; private set; }

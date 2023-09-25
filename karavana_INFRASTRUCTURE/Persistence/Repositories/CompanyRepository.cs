@@ -3,7 +3,6 @@ using karavana_APPLICATION.InfraAbstractions;
 using karavana_DOMAIN.Entites;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System.Data.Entity;
 
 namespace karavana_INFRASTRUCTURE.Persistence.Repositories
 {

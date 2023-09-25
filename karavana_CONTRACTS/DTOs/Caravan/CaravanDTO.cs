@@ -13,6 +13,7 @@ namespace karavana_CONTRACTS.DTOs.Caravan
     public class CaravanDTO : BaseDto
     {
         public string Name { get; set; }
+        public int CompanyId { get; set; }
         public string Description { get; set; }
         public FuelType FuelType { get; set; }
         public CaravanType CaravanType { get; set; }
@@ -22,7 +23,6 @@ namespace karavana_CONTRACTS.DTOs.Caravan
         public CityDto City { get; set; }
         public int DistrictId { get; set; }
         public DistrictDto District { get; set; }
-        public int CompanyId { get; set; }
         public CompanyDto Company { get; set; }
     }
 }

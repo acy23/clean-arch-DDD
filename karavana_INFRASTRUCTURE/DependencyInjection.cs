@@ -48,8 +48,11 @@ namespace karavana_INFRASTRUCTURE
         {
             services.AddScoped<ICaravanRepository, CaravanRepository>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
-            services.AddScoped<ITokenHelper, TokenHelper>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IFavouriteRepository, FavouriteRepository>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
+
+            services.AddScoped<ITokenHelper, TokenHelper>();
 
             return services;
         }

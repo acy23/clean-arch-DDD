@@ -27,6 +27,7 @@ namespace karavana_APPLICATION.ServiceImplementations
             var entity = new Caravan
                 (
                     name: request.Name,
+                    companyId: request.CompanyId,
                     fuelType: request.FuelType,
                     caravanType: request.CaravanType,
                     capacity: request.Capacity,

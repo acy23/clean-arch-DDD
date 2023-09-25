@@ -24,7 +24,12 @@ namespace karavana_APPLICATION.ServiceImplementations
 
         public async Task<CompanyDto> CreateCompany(CompanyCreateRequest request)
         {
-            var entity = new Company(request.Name);
+            var entity = new Company(
+                name: request.Name,
+                phoneNumber: request.PhoneNumber,
+                email: request.Email
+                );
+
             var createdEntity = await _repo.CreateCompany(entity);
 
             var response = _mapper.Map<CompanyDto>(createdEntity);

@@ -8,12 +8,16 @@ namespace karavana_DOMAIN.Entites
 {
     public sealed class Company : BaseSqlEntity 
     {
-        public Company(string name)
+        public Company(string name, string phoneNumber, string email)
         {
             Name = name;
+            PhoneNumber = phoneNumber;
+            Email = email;
         }
 
         public string Name { get; private set; }
+        public string PhoneNumber { get; private set; }
+        public string Email { get; private set; }
         public ICollection<Caravan> Caravans { get; private set; }
 
     }

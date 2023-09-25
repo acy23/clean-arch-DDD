@@ -15,7 +15,9 @@ namespace karavana_INFRASTRUCTURE.Persistence
         public DbSet<Company> Companys { get; set; }
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Rating> Ratings { get; set; }
-
+        public DbSet<CaravanImage> CaravanImages { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<District> Districts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,6 +56,12 @@ namespace karavana_INFRASTRUCTURE.Persistence
                 .HasForeignKey(x => x.CaravanId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Caravan_ActiveCaravanPlaces");
+
+                entity.HasMany(a => a.Images)
+                .WithOne(u => u.Caravan)
+                .HasForeignKey(x => x.CaravanId)
+                .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Caravan_Images");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -173,6 +181,18 @@ namespace karavana_INFRASTRUCTURE.Persistence
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Rating_User");
+            });
+
+            modelBuilder.Entity<CaravanImage>(entity =>
+            {
+                entity.ToTable(nameof(CaravanImage));
+                entity.HasKey(x => x.Id);
+
+                entity.HasOne(a => a.Caravan)
+                .WithMany(u => u.Images)
+                .HasForeignKey(x => x.CaravanId)
+                .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_CaravanImage_Caravan");
             });
 
 

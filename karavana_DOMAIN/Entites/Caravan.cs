@@ -10,6 +10,7 @@ namespace karavana_DOMAIN.Entites
     public sealed class Caravan : BaseSqlEntity
     {
         public Caravan(
+                int companyId,
                 string name, 
                 FuelType fuelType,
                 CaravanType caravanType,
@@ -20,6 +21,7 @@ namespace karavana_DOMAIN.Entites
                 string description)
         {
             Name = name;
+            CompanyId = companyId;
             FuelType = fuelType;
             CaravanType = caravanType;
             Capacity = capacity;
@@ -42,5 +44,6 @@ namespace karavana_DOMAIN.Entites
         public int CompanyId { get; private set; }
         public Company Company { get; private set; }
         public ICollection<ActiveCaravanPlace> ActiveCaravanPlaces { get; private set; }
+        public ICollection<CaravanImage> Images { get; set; }
     }
 }
