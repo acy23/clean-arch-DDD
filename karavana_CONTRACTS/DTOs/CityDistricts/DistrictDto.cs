@@ -9,9 +9,9 @@ namespace karavana_CONTRACTS.DTOs.CityDistricts
 {
     public class DistrictDto
     {
-        public int Id { get; }
-        public string DistrictName { get; } = null!;
-        public int CityId { get; }
-        public CityDto City { get; }
+        public int Id { get; set; }
+        public string DistrictName { get; set; } 
+        public int CityId { get; set; }
+        public CityDto City { get; set; }
     }
 }

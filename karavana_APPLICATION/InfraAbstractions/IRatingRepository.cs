@@ -11,6 +11,6 @@ namespace karavana_APPLICATION.InfraAbstractions
     {
         Task<Rating> CreateRating(Rating entity);
         Task<Rating?> GetRatingById(int id);
-        Task<Rating?> GetRatingsByActiveCaravanPlaceId(int activeCaravanPlaceId);
+        Task<Rating?> GetRatingsByCaravanRentOfferId(int caravanRentOfferId);
     }
 }

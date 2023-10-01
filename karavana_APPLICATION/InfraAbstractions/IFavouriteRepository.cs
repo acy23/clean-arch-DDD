@@ -11,6 +11,6 @@ namespace karavana_APPLICATION.InfraAbstractions
     {
         Task<Favourite> CreateFavourite(Favourite entity);
         Task<Favourite?> GetFavouriteById(int id);
-        Task<Favourite?> GetFavouritesByActiveCaravanPlaceId(int activeCaravanPlaceId);
+        Task<Favourite?> GetFavouritesByCaravanRentOfferId(int caravanRentOfferId);
     }
 }

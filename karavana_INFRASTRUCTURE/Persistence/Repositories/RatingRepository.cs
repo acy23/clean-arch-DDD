@@ -31,9 +31,9 @@ namespace karavana_INFRASTRUCTURE.Persistence.Repositories
             return entity;
         }
 
-        public async Task<Rating?> GetRatingsByActiveCaravanPlaceId(int activeCaravanPlaceId)
+        public async Task<Rating?> GetRatingsByCaravanRentOfferId(int caravanRentOfferId)
         {
-            var entity = await _context.Ratings.Where(x => x.ActiveCaravanPlaceId == activeCaravanPlaceId && !x.IsDeleted).SingleOrDefaultAsync();
+            var entity = await _context.Ratings.Where(x => x.CaravanRentOfferId == caravanRentOfferId && !x.IsDeleted).SingleOrDefaultAsync();
             return entity;
         }
     }

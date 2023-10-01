@@ -1,4 +1,4 @@
-﻿using karavana_CONTRACTS.DTOs.ActiveCaravanPlace;
+﻿using karavana_CONTRACTS.DTOs.CaravanRentOffer;
 using karavana_CONTRACTS.DTOs.User;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace karavana_CONTRACTS.DTOs.Favourite
     {
         public string UserId { get; set; }
         public UserDto User { get; set; }
-        public int ActiveCaravanPlaceId { get; set; }
-        public ActiveCaravanPlaceDto ActiveCaravanPlace { get; set; }
+        public int CaravanRentOfferId { get; set; }
+        public CaravanRentOfferDto CaravanRentOffer { get; set; }
     }
 }

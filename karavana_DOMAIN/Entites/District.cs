@@ -14,10 +14,10 @@ namespace karavana_DOMAIN.Entites
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         [Key]
-        public int Id { get; }
-        public string DistrictName { get; } = null!;
-        public int CityId { get; }
-        public City City { get; }
-        public ICollection<Caravan>? Caravans { get; set; }
+        public int Id { get; private set; }
+        public string DistrictName { get; private set; } 
+        public int CityId { get; private set; }
+        public City City { get; private set; }
+        public ICollection<Caravan>? Caravans { get; private set; }
     }
 }

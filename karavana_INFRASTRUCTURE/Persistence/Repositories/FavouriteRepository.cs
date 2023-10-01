@@ -32,9 +32,9 @@ namespace karavana_INFRASTRUCTURE.Persistence.Repositories
             return entity;
         }
 
-        public async Task<Favourite?> GetFavouritesByActiveCaravanPlaceId(int activeCaravanPlaceId)
+        public async Task<Favourite?> GetFavouritesByCaravanRentOfferId(int caravanRentOfferId)
         {
-            var entity = await _context.Favourites.Where(x => x.ActiveCaravanPlaceId == activeCaravanPlaceId 
+            var entity = await _context.Favourites.Where(x => x.CaravanRentOfferId == caravanRentOfferId 
                                                           && !x.IsDeleted)
                         .SingleOrDefaultAsync();
             return entity;

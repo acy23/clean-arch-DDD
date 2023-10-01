@@ -51,6 +51,7 @@ namespace karavana_INFRASTRUCTURE
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IFavouriteRepository, FavouriteRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<ICaravanRentOfferRepository, CaravanRentOfferRepository>();
 
             services.AddScoped<ITokenHelper, TokenHelper>();
 

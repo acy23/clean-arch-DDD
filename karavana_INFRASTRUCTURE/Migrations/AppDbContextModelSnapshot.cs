@@ -155,52 +155,6 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("karavana_DOMAIN.Entites.ActiveCaravanPlace", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CaravanId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ChangedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ChangedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Currency")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("PlaceEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PlaceStartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CaravanId");
-
-                    b.ToTable("ActiveCaravanPlace", (string)null);
-                });
-
             modelBuilder.Entity("karavana_DOMAIN.Entites.Caravan", b =>
                 {
                     b.Property<int>("Id")
@@ -303,6 +257,52 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.ToTable("CaravanImage", (string)null);
                 });
 
+            modelBuilder.Entity("karavana_DOMAIN.Entites.CaravanRentOffer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CaravanId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ChangedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ChangedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Currency")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("PlaceEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("PlaceStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CaravanId");
+
+                    b.ToTable("CaravanRentOffer", (string)null);
+                });
+
             modelBuilder.Entity("karavana_DOMAIN.Entites.City", b =>
                 {
                     b.Property<int>("Id")
@@ -310,6 +310,10 @@ namespace karavana_INFRASTRUCTURE.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CityName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -368,6 +372,10 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
+                    b.Property<string>("DistrictName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
@@ -383,7 +391,7 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ActiveCaravanPlaceId")
+                    b.Property<int>("CaravanRentOfferId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ChangedAt")
@@ -408,7 +416,7 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActiveCaravanPlaceId");
+                    b.HasIndex("CaravanRentOfferId");
 
                     b.HasIndex("UserId");
 
@@ -423,7 +431,7 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ActiveCaravanPlaceId")
+                    b.Property<int>("CaravanRentOfferId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ChangedAt")
@@ -454,7 +462,7 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActiveCaravanPlaceId");
+                    b.HasIndex("CaravanRentOfferId");
 
                     b.HasIndex("UserId");
 
@@ -608,17 +616,6 @@ namespace karavana_INFRASTRUCTURE.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("karavana_DOMAIN.Entites.ActiveCaravanPlace", b =>
-                {
-                    b.HasOne("karavana_DOMAIN.Entites.Caravan", "Caravan")
-                        .WithMany("ActiveCaravanPlaces")
-                        .HasForeignKey("CaravanId")
-                        .IsRequired()
-                        .HasConstraintName("FK_Caravan_ActiveCaravanPlaces");
-
-                    b.Navigation("Caravan");
-                });
-
             modelBuilder.Entity("karavana_DOMAIN.Entites.Caravan", b =>
                 {
                     b.HasOne("karavana_DOMAIN.Entites.City", "City")
@@ -657,6 +654,17 @@ namespace karavana_INFRASTRUCTURE.Migrations
                     b.Navigation("Caravan");
                 });
 
+            modelBuilder.Entity("karavana_DOMAIN.Entites.CaravanRentOffer", b =>
+                {
+                    b.HasOne("karavana_DOMAIN.Entites.Caravan", "Caravan")
+                        .WithMany("CaravanRentOffers")
+                        .HasForeignKey("CaravanId")
+                        .IsRequired()
+                        .HasConstraintName("FK_Caravan_CaravanRentOffers");
+
+                    b.Navigation("Caravan");
+                });
+
             modelBuilder.Entity("karavana_DOMAIN.Entites.District", b =>
                 {
                     b.HasOne("karavana_DOMAIN.Entites.City", "City")
@@ -670,11 +678,11 @@ namespace karavana_INFRASTRUCTURE.Migrations
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.Favourite", b =>
                 {
-                    b.HasOne("karavana_DOMAIN.Entites.ActiveCaravanPlace", "ActiveCaravanPlace")
+                    b.HasOne("karavana_DOMAIN.Entites.CaravanRentOffer", "CaravanRentOffer")
                         .WithMany("Favourites")
-                        .HasForeignKey("ActiveCaravanPlaceId")
+                        .HasForeignKey("CaravanRentOfferId")
                         .IsRequired()
-                        .HasConstraintName("FK_Favourite_ActiveCaravanPlace");
+                        .HasConstraintName("FK_Favourite_CaravanRentOffer");
 
                     b.HasOne("karavana_DOMAIN.Entites.User", "User")
                         .WithMany("Favourites")
@@ -682,18 +690,18 @@ namespace karavana_INFRASTRUCTURE.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_Favourite_User");
 
-                    b.Navigation("ActiveCaravanPlace");
+                    b.Navigation("CaravanRentOffer");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.Rating", b =>
                 {
-                    b.HasOne("karavana_DOMAIN.Entites.ActiveCaravanPlace", "ActiveCaravanPlace")
+                    b.HasOne("karavana_DOMAIN.Entites.CaravanRentOffer", "CaravanRentOffer")
                         .WithMany("Ratings")
-                        .HasForeignKey("ActiveCaravanPlaceId")
+                        .HasForeignKey("CaravanRentOfferId")
                         .IsRequired()
-                        .HasConstraintName("FK_Rating_ActiveCaravanPlace");
+                        .HasConstraintName("FK_Rating_CaravanRentOffer");
 
                     b.HasOne("karavana_DOMAIN.Entites.User", "User")
                         .WithMany("Ratings")
@@ -701,23 +709,23 @@ namespace karavana_INFRASTRUCTURE.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_Rating_User");
 
-                    b.Navigation("ActiveCaravanPlace");
+                    b.Navigation("CaravanRentOffer");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("karavana_DOMAIN.Entites.ActiveCaravanPlace", b =>
+            modelBuilder.Entity("karavana_DOMAIN.Entites.Caravan", b =>
+                {
+                    b.Navigation("CaravanRentOffers");
+
+                    b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("karavana_DOMAIN.Entites.CaravanRentOffer", b =>
                 {
                     b.Navigation("Favourites");
 
                     b.Navigation("Ratings");
-                });
-
-            modelBuilder.Entity("karavana_DOMAIN.Entites.Caravan", b =>
-                {
-                    b.Navigation("ActiveCaravanPlaces");
-
-                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("karavana_DOMAIN.Entites.City", b =>

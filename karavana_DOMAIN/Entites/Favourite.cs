@@ -9,15 +9,15 @@ namespace karavana_DOMAIN.Entites
     public sealed class Favourite : BaseSqlEntity
     {
         public Favourite(string userId,
-                         int activeCaravanPlaceId)
+                         int caravanRentOfferId)
         {
             UserId = userId;
-            ActiveCaravanPlaceId = activeCaravanPlaceId;
+            CaravanRentOfferId = caravanRentOfferId;
         }
 
         public string UserId { get; private set; }
         public User User { get; private set; }
-        public int ActiveCaravanPlaceId { get; private set; }
-        public ActiveCaravanPlace ActiveCaravanPlace { get; private set; }
+        public int CaravanRentOfferId { get; private set; }
+        public CaravanRentOffer CaravanRentOffer { get; private set; }
     }
 }

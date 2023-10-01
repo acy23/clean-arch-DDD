@@ -43,7 +43,38 @@ namespace karavana_DOMAIN.Entites
         public District District { get; private set; }
         public int CompanyId { get; private set; }
         public Company Company { get; private set; }
-        public ICollection<ActiveCaravanPlace> ActiveCaravanPlaces { get; private set; }
-        public ICollection<CaravanImage> Images { get; set; }
+        public ICollection<CaravanRentOffer> CaravanRentOffers { get; private set; }
+        public ICollection<CaravanImage> Images { get; private set; }
+
+        public void UpdateCaravan(Caravan caravan,
+            string? Name,
+            string? Description,
+            FuelType? FuelType,
+            CaravanType? CaravanType,
+            GearType? GearType,
+            Capacity? Capacity,
+            int? CityId,
+            int? DistrictId,
+            int? CompanyId)
+        {
+            if (Name != null) { caravan.Name = Name; }
+
+            if (Description != null) { caravan.Description = Description; }
+
+            if (FuelType != null) { caravan.FuelType = FuelType.Value; }
+
+            if (CaravanType != null) {  caravan.CaravanType = CaravanType.Value; }
+
+            if (GearType != null) { caravan.GearType = GearType.Value; }
+
+            if (Capacity != null) { caravan.Capacity = Capacity.Value; }
+
+            if (CityId != null) { caravan.CityId = CityId.Value; }
+
+            if (DistrictId != null) { caravan.DistrictId = DistrictId.Value; }
+
+            if (CompanyId != null) { caravan.CompanyId = CompanyId.Value; }
+        }
+    
     }
 }

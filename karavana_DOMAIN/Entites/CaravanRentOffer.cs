@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace karavana_DOMAIN.Entites
 {
-    public sealed class ActiveCaravanPlace : BaseSqlEntity // Aktif ilanda olan karavanlar 
+    public sealed class CaravanRentOffer : BaseSqlEntity // Aktif ilanda olan karavanlar 
     {
-        public ActiveCaravanPlace(
+        public CaravanRentOffer(
             int caravanId,
             double price,
             Currency currency,

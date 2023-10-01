@@ -16,6 +16,7 @@ namespace karavana_INFRASTRUCTURE.Persistence
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<CaravanImage> CaravanImages { get; set; }
+        public DbSet<CaravanRentOffer> CaravanRentOffers { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<District> Districts { get; set; }
 
@@ -51,11 +52,11 @@ namespace karavana_INFRASTRUCTURE.Persistence
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Caravan_District");
 
-                entity.HasMany(a => a.ActiveCaravanPlaces)
+                entity.HasMany(a => a.CaravanRentOffers)
                 .WithOne(u => u.Caravan)
                 .HasForeignKey(x => x.CaravanId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Caravan_ActiveCaravanPlaces");
+                .HasConstraintName("FK_Caravan_CaravanRentOffers");
 
                 entity.HasMany(a => a.Images)
                 .WithOne(u => u.Caravan)
@@ -128,22 +129,22 @@ namespace karavana_INFRASTRUCTURE.Persistence
                 .HasConstraintName("FK_District_Caravans");
             });
 
-            modelBuilder.Entity<ActiveCaravanPlace>(entity =>
+            modelBuilder.Entity<CaravanRentOffer>(entity =>
             {
-                entity.ToTable(nameof(ActiveCaravanPlace));
+                entity.ToTable(nameof(CaravanRentOffer));
                 entity.HasKey(x => x.Id);
 
                 entity.HasMany(a => a.Favourites)
-                .WithOne(u => u.ActiveCaravanPlace)
-                .HasForeignKey(x => x.ActiveCaravanPlaceId)
+                .WithOne(u => u.CaravanRentOffer)
+                .HasForeignKey(x => x.CaravanRentOfferId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ActiveCaravanPlace_Favourites");
+                .HasConstraintName("FK_CaravanRentOffer_Favourites");
 
                 entity.HasMany(a => a.Ratings)
-                .WithOne(u => u.ActiveCaravanPlace)
-                .HasForeignKey(x => x.ActiveCaravanPlaceId)
+                .WithOne(u => u.CaravanRentOffer)
+                .HasForeignKey(x => x.CaravanRentOfferId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ActiveCaravanPlace_Ratings");
+                .HasConstraintName("FK_CaravanRentOffer_Ratings");
 
             });
 
@@ -152,11 +153,11 @@ namespace karavana_INFRASTRUCTURE.Persistence
                 entity.ToTable(nameof(Favourite));
                 entity.HasKey(x => x.Id);
 
-                entity.HasOne(a => a.ActiveCaravanPlace)
+                entity.HasOne(a => a.CaravanRentOffer)
                 .WithMany(u => u.Favourites)
-                .HasForeignKey(x => x.ActiveCaravanPlaceId)
+                .HasForeignKey(x => x.CaravanRentOfferId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Favourite_ActiveCaravanPlace");
+                .HasConstraintName("FK_Favourite_CaravanRentOffer");
 
                 entity.HasOne(a => a.User)
                 .WithMany(u => u.Favourites)
@@ -170,11 +171,11 @@ namespace karavana_INFRASTRUCTURE.Persistence
                 entity.ToTable(nameof(Rating));
                 entity.HasKey(x => x.Id);
 
-                entity.HasOne(a => a.ActiveCaravanPlace)
+                entity.HasOne(a => a.CaravanRentOffer)
                 .WithMany(u => u.Ratings)
-                .HasForeignKey(x => x.ActiveCaravanPlaceId)
+                .HasForeignKey(x => x.CaravanRentOfferId)
                 .OnDelete(deleteBehavior: DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Rating_ActiveCaravanPlace");
+                .HasConstraintName("FK_Rating_CaravanRentOffer");
 
                 entity.HasOne(a => a.User)
                 .WithMany(u => u.Ratings)

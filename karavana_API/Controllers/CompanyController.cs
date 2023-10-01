@@ -15,6 +15,11 @@ namespace karavana_API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Creates a new company.
+        /// </summary>
+        /// <param name="request">The request object containing company data.</param>
+        /// <returns>The created company details.</returns>
         [HttpPost("create")]
         public async Task<CompanyDto> CreateCompany(CompanyCreateRequest request)
         {
