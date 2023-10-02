@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using karavana_CONTRACTS.Models;
 using karavana_CONTRACTS.DTOs.Caravan.Requests;
+using ErrorOr;
 
 namespace karavana_APPLICATION.ServiceImplementations
 {
@@ -50,18 +51,12 @@ namespace karavana_APPLICATION.ServiceImplementations
         public async Task<CaravanDTO> GetCaravanById(int id)
         {
             var caravan = await _repo.GetCaravanById(id);
-            if(caravan == null)
-            {
-                return null;
-            }
-
             var caravanResponse = _mapper.Map<CaravanDTO>(caravan);
             return caravanResponse;
         }
 
         public async Task<List<CaravanDTO>> GetCaravansByCompanyIdPagination(int companyId, int page, int pageSize)
         {
-            var skip = (page - 1) * pageSize;
             var items = await _repo.GetCaravans(x => x.CompanyId == companyId && !x.IsDeleted, page, pageSize);
 
             var response = _mapper.Map<List<CaravanDTO>>(items);
@@ -69,10 +64,9 @@ namespace karavana_APPLICATION.ServiceImplementations
             return response;
         }
 
-        public async Task<List<CaravanDTO>> GetCaravansOnRentPagination(int page, int pageSize)
+        public async Task<List<CaravanDTO>> GetCaravansOnRentPagination(int page, int pageSize, CaravanQueryFilters filters)
         {
-            var skip = (page - 1) * pageSize;
-            var items = await _repo.GetCaravansOnRentPagination(x => !x.IsDeleted, page, pageSize);
+            var items = await _repo.GetCaravansOnRentPagination(x => !x.IsDeleted, page, pageSize, filters);
 
             var response = _mapper.Map<List<CaravanDTO>>(items);
             
@@ -101,6 +95,7 @@ namespace karavana_APPLICATION.ServiceImplementations
         public async Task<CaravanDTO> UpdateCaravan(UpdateCaravanRequest request)
         {
             var caravan = await _repo.GetCaravanById(request.Id);
+
             caravan.UpdateCaravan(caravan,
                                   Name: request.Name,
                                   Description: request.Description,

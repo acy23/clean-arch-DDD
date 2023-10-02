@@ -50,17 +50,11 @@ namespace karavana_API.Controllers
         }
 
         [HttpGet("get-caranvans-on-rent-pagination")]
-        public async Task<List<CaravanDTO>> GetCaravansOnRentPagination(int page, int pageSize)
+        public async Task<List<CaravanDTO>> GetCaravansOnRentPagination(int page, int pageSize, [FromQuery] CaravanQueryFilters filters)
         {
-            var response = await _service.GetCaravansOnRentPagination(page, pageSize);
+            var response = await _service.GetCaravansOnRentPagination(page, pageSize, filters);
             return response;
         }
 
-        [HttpGet("get-caravans-by-companyId-pagination")]
-        public async Task<List<CaravanDTO>> GetCaravansByCompanyIdPagination(int companyId, int page, int pageSize)
-        {
-            var response = await _service.GetCaravansByCompanyIdPagination(companyId, page, pageSize);
-            return response;
-        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using karavana_CONTRACTS.DTOs.Caravan;
+using karavana_CONTRACTS.DTOs.Caravan.Requests;
 using karavana_DOMAIN.Entites;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace karavana_APPLICATION.InfraAbstractions
 {
     public interface ICaravanRepository
     {
-        Task<List<Caravan>> GetCaravansOnRentPagination(Expression<Func<Caravan, bool>> predicate, int page, int pageSize);
+        Task<List<Caravan>> GetCaravansOnRentPagination(Expression<Func<Caravan, bool>> predicate, int page, int pageSize, CaravanQueryFilters filters);
         Task<List<Caravan>> GetCaravans(Expression<Func<Caravan, bool>> predicate, int page, int pageSize);
         Task<Caravan?> GetCaravanById(int id);
         Task<Caravan> CreateCaravan(Caravan entity);

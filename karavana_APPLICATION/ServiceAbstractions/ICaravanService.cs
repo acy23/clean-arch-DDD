@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using karavana_CONTRACTS.Models;
 using karavana_CONTRACTS.DTOs.Caravan.Requests;
+using ErrorOr;
 
 namespace karavana_APPLICATION.ServiceAbstractions
 {
@@ -16,7 +17,7 @@ namespace karavana_APPLICATION.ServiceAbstractions
         Task<CaravanDTO> CreateCaravan(CreateCaravanRequest request);
         Task<CaravanDTO> GetCaravanById(int id);
         Task<CaravanDTO> SetCaravanOnRent(SetCravanOnRentRequest request);
-        Task<List<CaravanDTO>> GetCaravansOnRentPagination(int page, int pageSize);
+        Task<List<CaravanDTO>> GetCaravansOnRentPagination(int page, int pageSize, CaravanQueryFilters filters);
         Task<List<CaravanDTO>> GetCaravansByCompanyIdPagination(int companyId, int page, int pageSize);
         Task<CaravanDTO> UpdateCaravan(UpdateCaravanRequest request);
 
