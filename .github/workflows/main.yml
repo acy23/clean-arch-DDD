@@ -1,13 +1,8 @@
 name: Deploy to Amazon ECS
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-  push:
-    branches:
-      - main
+    push:
+      branches:
+        - main
 
 env:
   AWS_REGION: eu-central-1
